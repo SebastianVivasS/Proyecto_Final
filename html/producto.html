@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="../css/producto.css">
+</head>
+<body>
+    <header>
+        <img src="../img/Logo.png" alt="Logo">
+        <h1>Celulari</h1>
+        <div class="nav-buttons">
+            <button onclick="completarCompra()">Completar</button>
+            <button onclick="cancelarCompra()">Cancelar</button>
+        </div>
+    </header>
+
+    <section class="filter-section">
+        <label for="filter-tipo">Tipo:</label>
+        <select id="filter-tipo">
+            <option value="">Todos</option>
+            <option value="Celular">Celular</option>
+            <option value="Tableta">Tableta</option>
+        </select>
+        
+        <label for="filter-marca">Marca:</label>
+        <input type="text" id="filter-marca" placeholder="Ingrese la marca">
+
+        <button onclick="aplicarFiltros()">Filtrar</button>
+        <button onclick="limpiarFiltros()">Limpiar Filtros</button>
+    </section>
+
+    <main id="productos-container">
+        <!-- los pordutcos se cargan por medio de javascript -->
+    </main>
+    
+    <aside id="detalle-producto" style="display: none;">
+        <button class="close-button" onclick="ocultarDetalleProducto()">×</button>
+    </aside>
+    <section>
+        <p id="fin-productos" style="display: none;">No hay más productos para mostrar</p>
+    </section>
+    <footer>
+        
+        <p>© 2024 Celulari</p>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/producto.js"></script>
+</body>
+</html>

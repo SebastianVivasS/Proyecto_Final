@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0e0e057;
+    color: #01579b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4fc3f7;
+    color: #ffffff;
+}
+
+header img{
+    max-width: 70px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.nav-buttons button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #0288d1;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+
+
+.filter-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.filter-section label {
+    font-weight: bold;
+    color: #01579b;
+}
+
+.filter-section select{
+    padding: 8px;
+    border: 1px solid #272727;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #01579b;
+}
+
+.filter-section button {
+    padding: 8px;
+    border: 1px solid #81d4fa;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #b3e5fc;
+    color: #01579b;
+}
+
+#productos-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 90%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+}
+
+#productos-container .producto:first-child, 
+#productos-container .producto:nth-child(40) {
+    grid-column: span 4;
+    max-height: 500px;
+}
+
+#productos-container .producto:nth-child(18),
+#productos-container .producto:nth-child(19) {
+    grid-column: span 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.producto {
+    border: 1px solid #525252;
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    background-color: #ffffff;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    max-width: 280px;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.producto h2 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #01579b;
+}
+
+.producto p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #0288d1;
+}
+
+.producto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(2, 136, 209, 0.3);
+}
+
+#detalle-producto {
+    display: none;    
+    position: fixed;
+    top: 10%;
+    right: 20px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 8px 16px rgba(2, 136, 209, 0.3);
+    z-index: 10;
+    border: 2px solid #81d4fa;
+}
+
+#detalle-producto img {
+    width: 100%;
+    height: auto;
+    max-width: 280px; 
+    max-height: 400px; 
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 24px;
+    margin-bottom: 15px;
+    border: 2px solid #b3e5fc;
+}
+
+#detalle-producto h2 {
+    font-size: 1.6rem;
+    margin: 10px 0;
+    color: #01579b;
+    font-weight: bold;
+    text-align: center;
+}
+
+#detalle-producto p {
+    font-size: 1rem;
+    color: #0277bd;
+    margin: 10px 0;
+    text-align: justify;
+}
+
+#detalle-producto input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #81d4fa;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #e0f7fa;
+    color: #01579b;
+}
+
+#detalle-producto button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #0288d1;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#detalle-producto .close-button {
+    position:absolute;
+    top: 0px;
+    right: 10px;
+    width: 24px; 
+    height: 24px;
+    background-color: #0288d1; 
+    color: #ffffff; 
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px; 
+    padding: 0;
+}
+
+
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 9;
+}
+
+#fin-productos {
+    text-align: center;
+    padding: 10px;
+    color: #0288d1;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #4fc3f7;
+    color: #ffffff;
+}

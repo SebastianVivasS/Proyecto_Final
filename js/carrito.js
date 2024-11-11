@@ -64,7 +64,7 @@ function completarCompra() {
 
     //tiempo
     const retraso = Math.floor(Math.random() * 1000) + 2000;
-
+    alert("Procesando la compra...");
 
     setTimeout(() => {
         if (window.totalProductosSeleccionados > cantidadMaxima) {

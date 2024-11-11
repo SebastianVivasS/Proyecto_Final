@@ -1,68 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compra</title>
-    <link rel="stylesheet" href="../css/carrito.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="../css/carrito.css">
+</head>
+<body>
     <header>
-      <h1>Carrito de Compra</h1>
-      <nav>
-        <button onclick="continuarComprando()">Continuar comprando</button>
-      </nav>
+        <img src="../img/Logo.png" alt="Logo">
+        <h1>Carrito de Compra</h1>
+        <nav>
+            <button onclick="continuarComprando()">Continuar comprando</button> 
+        </nav>
     </header>
 
     <section class="main-content">
-      <section class="productos-seleccionados">
-        <table id="tabla-productos">
-          <thead>
-            <tr>
-              <th>Producto</th>
-              <th>Cantidad</th>
-              <th>Precio</th>
-              <th>Subtotal</th>
-              <th>Acción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- aui cargaran los seleccionados -->
-          </tbody>
-        </table>
-      </section>
-      <aside>
-        <article class="tarjeta-info">
-          <h2>Información de Tarjeta</h2>
-          <label for="numero-tarjeta">Número de Tarjeta</label>
-          <input
-            type="text"
-            id="numero-tarjeta"
-            placeholder="Ingrese su número de tarjeta"
-          />
-          <label for="fecha-expiracion">Fecha de Expiración</label>
-          <input type="text" id="fecha-expiracion" placeholder="MM/AA" />
-          <label for="cvv">CVV</label>
-          <input type="text" id="cvv" placeholder="3 dígitos" />
-        </article>
+        <section class="productos-seleccionados">
+            <table id="tabla-productos">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Subtotal</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- aui cargaran los seleccionados -->
+                </tbody>
+            </table>
+        </section>        
+        <aside>
+            <article class="tarjeta-info">
+                <h2>Información de Tarjeta</h2>
+                <label for="numero-tarjeta">Número de Tarjeta</label>
+                <input type="text" id="numero-tarjeta" placeholder="Ingrese su número de tarjeta">
+                <label for="fecha-expiracion">Fecha de Expiración</label>
+                <input type="text" id="fecha-expiracion" placeholder="MM/AA">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" placeholder="3 dígitos">
+            </article>
 
-        <section class="resumen-compra">
-          <h2>Resumen</h2>
-          <p id="total-productos">Total de productos: 0</p>
-          <p id="domicilio-info" style="display: none">Domicilio: $10.000</p>
-          <p id="total-compra">Total de la compra: $0</p>
-          <button onclick="completarCompra()">Completar</button>
-          <button onclick="cancelarCompra()" class="cancelar-btn">
-            Cancelar
-          </button>
-        </section>
-      </aside>
+            <section class="resumen-compra">
+                <h2>Resumen</h2>
+                <p id="total-productos">Total de productos: 0</p>
+                <p id="domicilio-info" style="display: none;">Domicilio: $10.000</p>
+                <p id="total-compra">Total de la compra: $0</p>
+                <button onclick="completarCompra()">Completar</button>
+                <button onclick="cancelarCompra()" class="cancelar-btn">Cancelar</button>
+            </section>            
+        </aside>
     </section>
 
     <footer>
-      <p>© 2024 Tienda de Celulares</p>
+        <p>© 2024 Tienda de Celulares</p>
     </footer>
 
     <script src="../js/carrito.js"></script>
-  </body>
+</body>
 </html>

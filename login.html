@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página celulares - Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <header>
+        <header>
+            <img src="../img/Logo.png" alt="Logo">
+            <h1>Celulari</h1>
+        </header>
+    </header>
+    <section class="login-wrapper">
+        <article class="login-container">
+            <section>
+                <h1>Página de Celulares</h1>
+            </section>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre del comprador</label>
+                    <input type="text" id="nombre" maxlength="20" placeholder="Ingrese su nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="presupuesto">Presupuesto máximo</label>
+                    <input type="text" id="presupuesto" placeholder="$0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cantidad">Cantidad de artículos máxima</label>
+                    <input type="number" id="cantidad" min="1" max="20" placeholder="Máximo 20 artículos" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" placeholder="Ingrese su dirección" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipoEntrega">Tipo de entrega</label>
+                    <select id="tipoEntrega" required>
+                        <option value="domicilio">Domicilio</option>
+                        <option value="recoger">Recoger</option>
+                    </select>
+                </div>
+
+                <footer class="form-buttons">
+                    <button type="button" onclick="iniciarCompra()">Iniciar compra</button>
+                    <button type="reset">Limpiar campos</button>
+                </footer>
+            </form>
+        </article>
+    </section>
+    <script src="js/login.js"></script>
+</body>
+</html>

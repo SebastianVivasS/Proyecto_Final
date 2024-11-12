@@ -12,20 +12,21 @@ function cargarProductos() {
         productCard.innerHTML = `
             <img src="${producto.imagen}" alt="${producto.nombre}">
             <h2>${producto.nombre}</h2>
-            <p>Marca: ${producto.marca}</p>
+            <p>Disponible: ${producto.disponible}</p>
             <p>Precio: $${producto.precio}</p>
         `;
+        //Al clickear un producto llama la funcion de mostrar detalle
         productCard.addEventListener("click", () => mostrarDetalleProducto(producto));
         container.appendChild(productCard);
     });
-
+    //Se actualiza el contador y si se mostraron todos los productos muestra el mensaje
     productosMostrados += productosPorPagina;
     if (productosMostrados >= productos.length) {
         document.getElementById("fin-productos").style.display = "block";
         window.removeEventListener("scroll", handleScroll);
     }
 }
-
+//Scroll infinito
 function handleScroll() {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         cargarProductos();
@@ -39,6 +40,7 @@ function mostrarDetalleProducto(producto) {
         <button class="close-button" onclick="ocultarDetalleProducto()">×</button>
         <img src="${producto.imagen}" alt="${producto.nombre}">
         <h2>${producto.nombre}</h2>
+        <p>Disponible: ${producto.disponible}</p>
         <p>Marca: ${producto.marca}</p>
         <p>Precio: $${producto.precio}</p>
         <p>Tipo: ${producto.tipo}</p>
@@ -56,20 +58,27 @@ function ocultarDetalleProducto() {
 
 
 function validarCantidad(input) {
-    input.value = input.value < 1 ? 1 : input.value;
+    input.value = input.value < 1 ? 1 : input.value; //Coloca 1 si es menor
 }
 
 
 function agregarAlCarrito(id) {
-    const cantidad = document.getElementById(`cantidad-${id}`).value;
+    const cantidad = parseInt(document.getElementById(`cantidad-${id}`).value);
     const producto = productos.find(p => p.id === id);
+    
     if (producto) {
+        if (cantidad > producto.disponible) {
+            alert(`No se puede agregar al carrito. La cantidad solicitada (${cantidad}) excede la cantidad disponible (${producto.disponible}).`);
+            return;
+        }
+
         const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        carrito.push({ ...producto, cantidad: parseInt(cantidad) });
+        carrito.push({ ...producto, cantidad: cantidad });
         localStorage.setItem("carrito", JSON.stringify(carrito));
         alert("Producto agregado al carrito");
     }
 }
+
 
 function completarCompra() {
     window.location.href = "carrito.html";
@@ -86,11 +95,12 @@ function aplicarFiltros() {
     const tipo = document.getElementById("filter-tipo").value;
 
     productosMostrados = 0;
-    document.getElementById("productos-container").innerHTML = "";
+    document.getElementById("productos-container").innerHTML = ""; 
     const productosFiltrados = productos.filter(producto => 
         (!marcaInput || producto.marca.toLowerCase().includes(marcaInput)) && 
         (!tipo || producto.tipo === tipo)
     );
+
     productosMostrados += productosFiltrados.length;
     productosFiltrados.forEach(producto => {
         const productCard = document.createElement("div");
